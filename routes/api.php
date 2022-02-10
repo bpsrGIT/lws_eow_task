@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +31,14 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
 
     Route::put('/products/{product}/activate', [ProductsController::class, 'activateProduct']);
 
-    Route::put('products/{product}/deactivate', [ProductsController::class, 'deactivateProduct']);
+    Route::put('/products/{product}/deactivate', [ProductsController::class, 'deactivateProduct']);
 
-    
+    Route::post('/users/register', [UsersController::class, 'registerUser']);
+
+    Route::put('/users/{user}/admin', [UsersController::class, 'makeUserAdmin']);
+
+    Route::put('users/{user}/update', [UsersController::class, 'editUserDetails']);
+
+    Route::delete('users/{id}', [UsersController::class, 'deleteUser']);
 });
 
