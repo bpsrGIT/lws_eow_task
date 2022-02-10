@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Http\Resources\ProductResource;
+use Illuminate\Support\Facades\Request;
 
 class ProductsController extends Controller
 {
@@ -15,16 +16,19 @@ class ProductsController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
-            'quantity' => $request->input('quantity')
+            'quantity' => $request->input('quantity'),
+            'isActive' => 'true'
         ]);
         return new ProductResource($product);
     }
 
     //Edit product details
-    public function editProduct(UpdateProductRequest $request, Product $product){
+    public function editProduct(Request $request, Product $product){
         $product->update([
-            'name' => $request->input('name')
-
+            'name' => $request::input('name'),
+            'description' => $request::input('description'),
+            'price' => $request::input('price'),
+            'quantity' => $request::input('quantity')
         ]);
         return new ProductResource($product);
     }

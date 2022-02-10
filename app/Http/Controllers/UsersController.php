@@ -11,16 +11,6 @@ use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
-    //Register new user
-    public function registerUser(Request $request){
-        $user = User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('description'),
-            'mobileNumber' => $request->input('price'),
-            'password' => $request->input('quantity')
-        ]);
-        return new UserResource($user);
-    }
 
     //Make user an admin
     public function makeUserAdmin(User $user){
