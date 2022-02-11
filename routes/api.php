@@ -23,9 +23,11 @@ Route::middleware('auth:api')->group(function () {
 
     Route::put('/products/{product}/deactivate', [ProductsController::class, 'deactivateProduct']);
 
-    Route::post('/users/register', [RegisterController::class, 'create']);
+    // Route::post('/users/register', [RegisterController::class, 'create']);
 
     Route::put('/users/{user}/admin', [UsersController::class, 'makeUserAdmin']);
+
+    Route::put('/users/{user}/nonadmin', [UsersController::class, 'makeUserNonAdmin']);
 
     Route::put('users/{user}/update', [UsersController::class, 'editUserDetails']);
 

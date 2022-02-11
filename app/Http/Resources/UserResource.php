@@ -20,7 +20,8 @@ class UserResource extends JsonResource
             'attributes' => [
                 'name' => $this->name,
                 'email' => $this->email,
-                'isAdmin' => (boolean)$this->isAdmin
+                'isAdmin' => (boolean)$this->isAdmin,
+                'mobileNumber' => (string)$this->mobileNumber
             ]
         ];
     }

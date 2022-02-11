@@ -14,8 +14,16 @@ class UsersController extends Controller
 
     //Make user an admin
     public function makeUserAdmin(User $user){
-        $user->updated([
-            'isAdmin' => 'true'
+        $user->update([
+            'isAdmin' => 1
+        ]);
+        return new UserResource($user);
+    }
+
+    //remove admin
+    public function makeUserNonAdmin(User $user){
+        $user->update([
+            'isAdmin' => 0
         ]);
         return new UserResource($user);
     }
@@ -32,6 +40,6 @@ class UsersController extends Controller
     //delete user
     public function deleteUser(User $user){
         $user->delete();
-        return response()->json(null);
+        return new UserResource($user);
     }
 }
