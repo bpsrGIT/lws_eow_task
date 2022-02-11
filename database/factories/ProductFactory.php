@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             'description' => 'aaaaaaa',
             'price' => '1234545463',
             'quantity' => $this->faker->numberBetween(1, 10),
-            'isActive' => 'false',
+            'isActive' => false,
         ];
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::put('/products/{product}/deactivate', [ProductsController::class, 'deactivateProduct']);
 
-    // Route::post('/users/register', [UsersController::class, 'registerUser']);
+    Route::post('/users/register', [RegisterController::class, 'create']);
 
     Route::put('/users/{user}/admin', [UsersController::class, 'makeUserAdmin']);
 

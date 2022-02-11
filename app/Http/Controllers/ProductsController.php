@@ -46,7 +46,7 @@ class ProductsController extends Controller
     //Activate product
     public function activateProduct(Product $product){
         $product->update([
-            'isActive' => 'true'
+            'isActive' => 1
         ]);
         return new ProductResource($product);
     }
@@ -54,7 +54,7 @@ class ProductsController extends Controller
     //Deactivate Product
     public function deactivateProduct(Product $product){
         $product->update([
-            'isActive' => 'false'
+            'isActive' => 0
         ]);
         return new ProductResource($product);
     }
